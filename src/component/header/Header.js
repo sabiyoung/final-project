@@ -3,7 +3,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SmsIcon from "@material-ui/icons/Sms";
 import "./header.css";
-import logo from "../images/logo.svg";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../stateProvider/StateProvider";
 function Header() {
@@ -11,7 +10,7 @@ function Header() {
   return (
     <div className="header">
       <Link to="/">
-        <img className="header__logo" src={logo} alt="logo" />
+        <h1 className="store_name">Sabi Store</h1>
       </Link>
       <div className="header__search">
         <input className="header__searchInput" type="text" />

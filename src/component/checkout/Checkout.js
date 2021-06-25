@@ -8,14 +8,19 @@ import RemoveIcon from "@material-ui/icons/Remove";
 function Checkout() {
   const [{ cart, quantity }, dispatch] = useStateValue();
   // const [items, setItems] = useState(1);
-  console.log("cart", cart);
+  console.log("cart", quantity);
   const removeFromCart = (id) => {
     dispatch({
       type: "REMOVE_FROM_CART",
       payload: id,
     });
   };
-
+const handleQuantity = (quantity) => {
+  dispatch({
+    type: "ADD_QUANTITY",
+   payload: quantity,
+  })
+}
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -39,7 +44,14 @@ function Checkout() {
                     id="qty"
                     name="qty"
                     // value={}
+                    onChange={(e) => {
+                    handleQuantity(e.target.value);
+                    console.log()
+                  }
+                  }
+                
                   ></input>
+                  
                 </div>
 
                 <button onClick={() => removeFromCart(item.id)}>

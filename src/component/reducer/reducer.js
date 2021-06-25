@@ -1,6 +1,7 @@
 export const initialState = {
   cart: [],
   detail: [],
+
 };
 
 const reducer = (state, action) => {
@@ -19,12 +20,12 @@ const reducer = (state, action) => {
         detail: [action.payload],
       };
 
-    // case "ADD_QUANTITY":
-    //   return {
-    //     ...state,
-    //     cart: [...state.cart],
-    //     quantity: [action.payload.id],
-    //   };
+    case "ADD_QUANTITY":
+      return {
+        ...state,
+        cart: [...state.cart],
+        quantity:action.payload,
+      };
 
     case "REMOVE_FROM_CART":
       const index = state.cart.findIndex(

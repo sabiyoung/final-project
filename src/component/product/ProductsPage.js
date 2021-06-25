@@ -14,16 +14,15 @@ function ProductsPage() {
         setProducts(() => products.products);
       });
   }, []);
-  // console.log(products);
 
+ // dispatch the item into the data layer
   const addToDetail = (product) => {
-    // dispatch the item into the data layer
     dispatch({
       type: "ADD_TO_DETAIL",
       payload: product,
     });
   };
-  // console.log(detail);
+
   return (
     <div>
       <Link to="/productdetail" className="link">

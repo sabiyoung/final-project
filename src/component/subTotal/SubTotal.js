@@ -4,11 +4,11 @@ import { useStateValue } from "../stateProvider/StateProvider";
 import { useHistory } from "react-router";
 import "./subTotal.css";
 function SubTotal() {
-  const [{ cart }] = useStateValue();
+  const [{ cart, quantity }] = useStateValue();
 
   const history = useHistory();
   const getCartTotal = (cart) =>
-    cart.reduce((amount, item) => item.price + amount, 0);
+    cart.reduce((amount, item) => quantity  ? (item.price * quantity) : item.price + amount, 0 );
 
   return (
     <div className="subtotal">

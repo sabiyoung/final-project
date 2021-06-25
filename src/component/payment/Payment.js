@@ -21,14 +21,17 @@ function Payment() {
 
   const [clientSecret, setClientSecret] = useState(true);
 
-  console.log("THE SECRET IS >>>", clientSecret);
+  // console.log("THE SECRET IS >>>", clientSecret);
 
   const handleChange = (event) => {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
 
-  //
+  const handleSumit = (event) => {
+    event.preventDefault();
+    setProcessing(true);
+  }
   const homePage = () => {
     dispatch({
       type: "EMPTY_CART",
@@ -93,7 +96,7 @@ function Payment() {
             <h3>Payment Method</h3>
           </div>
           <div className="payment__details">
-            <form>
+            <form onSubmit={handleSumit}>
               <CardElement onChange={handleChange} />
               <div className="payment__priceContainer">
                 <CurrencyFormat
