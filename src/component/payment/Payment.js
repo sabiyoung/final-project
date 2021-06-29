@@ -6,12 +6,13 @@ import { useStateValue } from "../stateProvider/StateProvider";
 import CurrencyFormat from "react-currency-format";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 function Payment() {
-  const [{ cart }, dispatch] = useStateValue();
+  const [{ cart,quantity }, dispatch] = useStateValue();
   // we use it to access the data layer
   const history = useHistory();
 
   const getCartTotal = (cart) =>
-    cart?.reduce((amount, item) => item.price + amount, 0);
+  cart.reduce((amount, item) => quantity  ? (item.price * quantity) : item.price + amount, 0 );
+
 
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
@@ -19,7 +20,7 @@ function Payment() {
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
 
-  const [clientSecret, setClientSecret] = useState(true);
+  // const [clientSecret, setClientSecret] = useState(true);
 
   // console.log("THE SECRET IS >>>", clientSecret);
 

@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { useStateValue } from "../stateProvider/StateProvider";
 import SubTotal from "../subTotal/SubTotal";
 import "./checkout.css";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
+
 
 function Checkout() {
   const [{ cart, quantity }, dispatch] = useStateValue();
-  // const [items, setItems] = useState(1);
+
   console.log("cart", quantity);
   const removeFromCart = (id) => {
     dispatch({
@@ -46,7 +45,7 @@ const handleQuantity = (quantity) => {
                     // value={}
                     onChange={(e) => {
                     handleQuantity(e.target.value);
-                    console.log()
+                   
                   }
                   }
                 
