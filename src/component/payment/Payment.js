@@ -22,7 +22,7 @@ function Payment() {
 
   // const [clientSecret, setClientSecret] = useState(true);
 
-  // console.log("THE SECRET IS >>>", clientSecret);
+
 
   const handleChange = (event) => {
     setDisabled(event.empty);
